@@ -25,6 +25,9 @@ git clone https://github.com/LeandreAZ/finances.git
 
 ## Documentation
 
+leandre-ribeiro-goncalves.fr/interet/
+leandre-ribeiro-goncalves.fr/emprunt/
+
 License
 This project is licensed under the MIT License.
 See the [`license file`](./LICENSE) for details.
