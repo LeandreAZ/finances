@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulateur d'emprunt</title>
+</head>
+<body>
+    <div class="container-form">
+        <form action="">
+            <label for="montant">Montant en €</label>
+            <input id="montant" name="montant" type="number" placeholder="Entrez le montant..." min="0" step="0.01" required>
+            <label for="taux">Taux Annuel</label>
+            <input id="taux" name="taux" type="number" placeholder="Entrez le taux..." min="0" step="0.01" required>
+            <label for="duree">Durée de remboursement (en années)</label>
+            <input id="duree" name="duree" type="number" placeholder="Entrez la durée en années..." min="1" max="100" required>
+            <div class="select">
+                <label for="periodicite">Type de remboursement</label>
+                <select name="periodicite" id="periodicite">
+                    <option value="mensuels">Mensuels</option>
+                    <option value="trimestriels">Trimestriels</option>
+                    <option value="semestriels">Semestriels</option>
+                    <option value="annuels">Annuels</option>
+                </select>
+                <label for="calcul">Mode de calcul</label>
+                <select name="calcul" id="calcul">
+                    <option value="annuites">Annuités constantes</option>
+                    <option value="amortissements">Amortissements constants</option>
+                </select>
+            </div>
+            <button id="btnForm" type="submit">Lancer la simulation</button>
+        </form>
+    </div>
+    <div class="container-tab">
+        <table id="tableau">
+            <thead id="thead">
+                <th scope="col">Périodes</th>
+                <th scope="col">Capital restant en début de période</th>
+                <th scope="col">Intérêts de la période</th>
+                <th scope="col">Amortissements du capital</th>
+                <th scope="col">Annuités d'emprunt</th>
+                <th scope="col">Capital restant en fin de période</th>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+        <button id="btnTableau">Modifier la simulation</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

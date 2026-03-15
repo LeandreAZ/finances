@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --orange: #f59e0b;
+    --orange-dark: #d97706;
+    --background: #f7f7f7;
+    --white: #ffffff;
+    --border: #e2e2e2;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: var(--white);
+    padding: 35px;
+    border-radius: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.initial-inputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.initial-inputs label {
+    font-size: 13px;
+}
+
+.initial-inputs input {
+    grid-row: 2;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input[type="number"], input[type="date"], select {
+    width: 100%;
+    height: 40px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    background: white;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 2px rgba(245,158,11,0.2);
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--orange);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: var(--orange-dark);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.buttons div {
+    display: contents;
+}
+
+.buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+#removeVersementRetraitBtn, #removeTauxBtn {
+    background: #ef4444;
+}
+
+#removeVersementRetraitBtn:hover, #removeTauxBtn:hover {
+    background: #dc2626;
+}
+
+
+.changements {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.versementRetrait, .taux {
+    background: #f9fafb;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.versementRetrait:empty, .taux:empty {
+    display: none;
+}
+
+.line-versement-retrait, .line-taux {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.line-versement-retrait input, .line-versement-retrait select, .line-taux input {
+    flex: 1;
+}
+
+.resultat {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 25px;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .initial-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .initial-inputs input {
+        grid-row: auto;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .line-versement-retrait, .line-taux {
+        flex-direction: column;
+    }
+}

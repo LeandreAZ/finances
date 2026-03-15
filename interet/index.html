@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulateur d'intérêts</title>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="initial-inputs">
+                <label for="capitalInitial">Capital initial</label>
+                <input type="number" min="0" step="0.01" name="capitalInitial" placeholder="Entrez le capital initial (€)" required>
+                <label for="dateInitial">Date de début</label>
+                <input type="date" name="dateInitial" required>
+                <label for="TauxInitial">Taux initial</label>
+                <input type="number" min="0" step="0.01" name="tauxInitial" placeholder="Entrez le taux initial (%)" required>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button type="button" id="versementRetraitBtn">
+                        + Versement / Retrait
+                    </button>
+                    <button type="button" id="tauxBtn">
+                        + Changement de taux
+                    </button>
+                </div>
+                <div>
+                    <button type="button" id="removeVersementRetraitBtn">
+                        - Versement / Retrait
+                    </button>
+                    <button type="button" id="removeTauxBtn">
+                        - Changement de taux
+                    </button>
+                </div>
+            </div>
+            <div class="changements" id="changements">
+                <div class="versementRetrait" id ="versementRetrait">
+
+                </div>
+                <div class="taux" id="taux">
+
+                </div>
+            </div>
+            <button id="btnForm" type="submit">
+                Calculer les intérêts
+            </button>
+        </form>
+
+        <div class="resultat">
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
