@@ -26,7 +26,7 @@ btnForm.addEventListener("click", (event) => {
 
     function calcul(typeRemboursement, typeMode) {
         let montant = parseFloat(form.montant.value);
-        const taux = parseFloat(form.taux.value);
+        let taux = parseFloat(form.taux.value);
         const duree = parseFloat(form.duree.value);
         let totalInterets = 0;
         let totalAmortissements = 0;
@@ -35,26 +35,32 @@ btnForm.addEventListener("click", (event) => {
         switch (typeRemboursement) {
             case "mensuels":
                 dureeConvert = duree * 12
+                // je recalcule le taux en fonction du mois
+                taux = Math.pow(1+taux/100, 1/12)-1;
                 break;
             case "trimestriels":
                 dureeConvert = duree * 4
+                taux = Math.pow(1+taux/100, 1/4)-1;
                 break;
             case "semestriels":
                 dureeConvert = duree * 2
+                taux = Math.pow(1+taux/100, 1/2)-1;
                 break;
             case "annuels":
                 dureeConvert = duree
+                taux = taux/100;
                 break;
             default:
                 dureeConvert = duree
+                taux = taux/100;
         }
 
         // je commence les calculs pour les amortissements et les annuités
         let montantRestantDebut = montant;
         let amortissements = montant / dureeConvert;
-        let annuites = montant * ((taux / 100) / (1 - Math.pow(1 + (taux / 100), -dureeConvert)));
+        let annuites = montant * (taux / (1 - Math.pow(1 + taux, -dureeConvert)));
         for (i = 1; i <= dureeConvert; i++) {;
-            let interets = montant * (taux / 100);
+            let interets = montant * taux;
             totalInterets += interets;
             // calculs pour les amortissements constants :
             if (typeMode == "amortissements") {
